@@ -14,7 +14,7 @@ mongoose.Promise = global.Promise;
 app.use(
   cors({
     origin: "*",
-    methods: ["GET", "POST"],
+    methods: ["GET", "POST", "DELETE"],
   })
 );
 app.use(bodyParser.json());
