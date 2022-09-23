@@ -10,8 +10,9 @@ const IndividualSchema = new Schema({
   firstName: String,
   lastName: String,
   email: String,
-  device: String,
   gender: String,
+  device: String,
+  testMethod: String,
   testType: String,
   testResults: [ResultsSchema],
 });
