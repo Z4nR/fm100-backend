@@ -12,7 +12,6 @@ const IndividualSchema = new Schema({
   email: String,
   gender: String,
   device: String,
-  testMethod: String,
   testType: String,
   testResults: [ResultsSchema],
 });
