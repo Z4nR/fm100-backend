@@ -7,9 +7,10 @@ const ResultsSchema = new Schema({
 });
 
 const IndividualSchema = new Schema({
+  date: String,
   firstName: String,
   lastName: String,
-  email: String,
+  age: Number,
   gender: String,
   device: String,
   testType: String,
