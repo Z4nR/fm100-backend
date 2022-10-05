@@ -14,6 +14,7 @@ const IndividualSchema = new Schema({
   gender: String,
   device: String,
   testType: String,
+  totalErrorScore: Number,
   testResults: [ResultsSchema],
 });
 
