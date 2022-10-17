@@ -1,9 +1,14 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const ResultsSchema = new Schema({
+const ComparisonSchema = new Schema({
   num: Number,
-  value: Boolean,
+  comparison: Boolean,
+});
+
+const DiscriminantSchema = new Schema({
+  num: Number,
+  discriminant: Number,
 });
 
 const IndividualSchema = new Schema({
@@ -15,7 +20,8 @@ const IndividualSchema = new Schema({
   device: String,
   testType: String,
   totalErrorScore: Number,
-  testResults: [ResultsSchema],
+  comparisonResults: [ComparisonSchema],
+  discriminantResults: [DiscriminantSchema],
 });
 
 const individualuser = mongoose.model(
