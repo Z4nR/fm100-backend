@@ -20,8 +20,8 @@ const IndividualSchema = new Schema({
   device: String,
   testType: String,
   totalErrorScore: Number,
-  comparisonResults: [ComparisonSchema],
-  discriminantResults: [DiscriminantSchema],
+  comparisonResults: [{ num: Number, comparison: Boolean }],
+  discriminantResults: [{ num: Number, discriminant: Number }],
 });
 
 const individualuser = mongoose.model(

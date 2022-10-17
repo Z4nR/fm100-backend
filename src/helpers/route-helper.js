@@ -5,6 +5,8 @@ module.exports = {
     return (req, res, next) => {
       const result = schema.validate(req.body);
 
+      console.log(result);
+
       if (result.error) {
         return res.status(400).json(result.error);
       } else {
@@ -23,16 +25,6 @@ module.exports = {
   },
 
   schema: {
-    comparisonSchema: Joi.object().keys({
-      num: Joi.number().required(),
-      comparison: Joi.boolean().required(),
-    }),
-
-    discriminantSchema: Joi.object().keys({
-      num: Joi.number().required(),
-      comparison: Joi.number().required(),
-    }),
-
     individualSchema: Joi.object().keys({
       date: Joi.string().required(),
       firstName: Joi.string().required(),
@@ -42,13 +34,13 @@ module.exports = {
       device: Joi.string().required(),
       testType: Joi.string().required(),
       totalErrorScore: Joi.number().required(),
-      comparisonResult: Joi.array().items(
+      comparisonResults: Joi.array().items(
         Joi.object({
           num: Joi.number().required(),
           comparison: Joi.boolean().required(),
         })
       ),
-      discirminatResult: Joi.array().items(
+      discriminantResults: Joi.array().items(
         Joi.object({
           num: Joi.number().required(),
           discriminant: Joi.number().required(),
