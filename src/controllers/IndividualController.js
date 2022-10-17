@@ -1,13 +1,13 @@
 const Individual = require("../model/IndividualUser");
 
 module.exports = {
-  newIndiUser: async (req, res, next) => {
-    const newIndiUser = new Individual(req.value.body);
-    const indi = await newIndiUser.save();
-    res.status(201).json(indi);
+  newUser: async (req, res, next) => {
+    const newUser = new Individual(req.value.body);
+    const user = await newUser.save();
+    res.status(201).json(user);
   },
 
-  getIndiUser: async (req, res, next) => {
+  getUser: async (req, res, next) => {
     const { userId } = req.params;
     const user = await Individual.findById(userId);
     res.status(200).json(user);

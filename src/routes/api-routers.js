@@ -7,8 +7,8 @@ router
   .route("/new-user")
   .post(
     validateIndividualBody(schema.individualSchema),
-    IndividualController.newIndiUser
+    IndividualController.newUser
   );
-router.route("/user-data/:userId").get(IndividualController.getIndiUser);
+router.route("/user-data/:userId").get(IndividualController.getUser);
 
 module.exports = router;
