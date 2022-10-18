@@ -1,9 +1,15 @@
+const {
+  deleteAllUser,
+  getAllUser,
+} = require("./controllers/IndividualController");
+
 const express = require("express"),
   mongoose = require("mongoose"),
   route = require("./routes/api-routers"),
   app = express(),
   bodyParser = require("body-parser"),
-  cors = require("cors");
+  cors = require("cors"),
+  cron = require("node-cron");
 
 require("dotenv").config();
 
@@ -56,6 +62,22 @@ mongo
   .catch((err) => {
     console.log(err);
   });
+
+//Delete Daily Schedule
+const deleteSchedule = cron.schedule(
+  "59 11 9 * * *",
+  () => {
+    if (getAllUser.length > 0) {
+      deleteAllUser();
+    }
+  },
+  {
+    scheduled: true,
+    timezone: "Asia/Jakarta",
+  }
+);
+
+deleteSchedule.start();
 
 //Listen port
 const port = process.env.PORT || 5000;

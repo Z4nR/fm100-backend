@@ -9,6 +9,7 @@ router
     validateIndividualBody(schema.individualSchema),
     IndividualController.newUser
   );
+router.route("/all-user").get(IndividualController.getAllUser);
 router.route("/user-data/:userId").get(IndividualController.getUser);
 
 module.exports = router;
