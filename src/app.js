@@ -65,7 +65,7 @@ mongo
 
 //Delete Daily Schedule
 const deleteSchedule = cron.schedule(
-  "59 11 9 * * *",
+  "59 59 23 * * *",
   () => {
     if (getAllUser.length > 0) {
       deleteAllUser();
