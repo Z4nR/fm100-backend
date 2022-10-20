@@ -1,8 +1,23 @@
 const Joi = require("joi");
 
 module.exports = {
+  generateRandomCharacters: (size) => {
+    let generatedOutput = "";
+    const storedCharacters =
+      "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const totalCharacterSize = storedCharacters.length;
+    for (let index = 0; index < size; index++) {
+      generatedOutput += storedCharacters.charAt(
+        Math.floor(Math.random() * totalCharacterSize)
+      );
+    }
+    return generatedOutput;
+  },
+
   validateIndividualBody: (schema) => {
     return (req, res, next) => {
+      console.log(req.body);
+
       const result = schema.validate(req.body);
 
       console.log(result);
@@ -36,13 +51,13 @@ module.exports = {
       totalErrorScore: Joi.number().required(),
       comparisonResults: Joi.array().items(
         Joi.object({
-          num: Joi.number().required(),
+          number: Joi.number().required(),
           comparison: Joi.boolean().required(),
         })
       ),
       discriminantResults: Joi.array().items(
         Joi.object({
-          num: Joi.number().required(),
+          number: Joi.number().required(),
           discriminant: Joi.number().required(),
         })
       ),
