@@ -2,7 +2,6 @@ const {
   deleteAllUser,
   getAllUser,
 } = require("./controllers/IndividualController");
-const { generateRandomCharacters } = require("./helpers/route-helper");
 
 const express = require("express"),
   mongoose = require("mongoose"),
@@ -86,6 +85,3 @@ app.listen(port, () => {
   console.log("Port is good");
   console.log(port);
 });
-
-console.log(generateRandomCharacters(7));
-console.log(generateRandomCharacters(7));

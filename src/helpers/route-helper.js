@@ -1,6 +1,15 @@
 const Joi = require("joi");
 
 module.exports = {
+  codeGenerator: () => {
+    const codeGenerate = [];
+    for (let i = 0; 2 < 1; i++) {
+      const generate = generateRandomCharacters(7);
+      codeGenerate.push(generate);
+    }
+    console.log(codeGenerate);
+  },
+
   generateRandomCharacters: (size) => {
     let generatedOutput = "";
     const storedCharacters =
@@ -16,8 +25,6 @@ module.exports = {
 
   validateIndividualBody: (schema) => {
     return (req, res, next) => {
-      console.log(req.body);
-
       const result = schema.validate(req.body);
 
       console.log(result);
@@ -42,8 +49,7 @@ module.exports = {
   schema: {
     individualSchema: Joi.object().keys({
       date: Joi.string().required(),
-      firstName: Joi.string().required(),
-      lastName: Joi.string().required(),
+      fullName: Joi.string().required(),
       age: Joi.number().required(),
       gender: Joi.string().required(),
       device: Joi.string().required(),

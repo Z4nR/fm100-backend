@@ -4,7 +4,7 @@ module.exports = {
   newUser: async (req, res, next) => {
     const newUser = new Individual(req.value.body);
     const user = await newUser.save();
-    res.status(201).json(user);
+    res.status(201).json(user._id);
   },
 
   getAllUser: async (req, res, next) => {

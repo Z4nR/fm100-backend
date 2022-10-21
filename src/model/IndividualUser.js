@@ -3,8 +3,7 @@ const { Schema } = mongoose;
 
 const IndividualSchema = new Schema({
   date: String,
-  firstName: String,
-  lastName: String,
+  fullName: String,
   age: Number,
   gender: String,
   device: String,
