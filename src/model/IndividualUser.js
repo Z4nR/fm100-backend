@@ -9,7 +9,7 @@ const IndividualSchema = new Schema({
   device: String,
   testType: String,
   totalErrorScore: Number,
-  comparisonResults: [{ number: Number, comparison: Boolean }],
+  comparisonResults: [{ number: Number, comparison: String }],
   discriminantResults: [{ number: Number, discriminant: Number }],
 });
 

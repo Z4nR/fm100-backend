@@ -58,7 +58,7 @@ module.exports = {
       comparisonResults: Joi.array().items(
         Joi.object({
           number: Joi.number().required(),
-          comparison: Joi.boolean().required(),
+          comparison: Joi.string().required(),
         })
       ),
       discriminantResults: Joi.array().items(
