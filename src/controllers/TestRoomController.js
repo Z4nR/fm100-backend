@@ -4,7 +4,8 @@ const Room = require("../model/TestRoom");
 module.exports = {
   newRoom: async (req, res, next) => {
     const codeGenerator = generateRandomCharacters(7);
-    const newUser = new Room(req.body);
+    const data = { ...req.body, code: codeGenerator };
+    const newUser = new Room(data);
     const user = await newUser.save();
     res.status(201).json(user);
   },
