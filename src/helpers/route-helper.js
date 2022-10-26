@@ -1,26 +1,20 @@
 const Joi = require("joi");
 
 module.exports = {
-  codeGenerator: () => {
-    const codeGenerate = [];
-    for (let i = 0; 2 < 1; i++) {
-      const generate = generateRandomCharacters(7);
-      codeGenerate.push(generate);
-    }
-    console.log(codeGenerate);
-  },
-
   generateRandomCharacters: (size) => {
-    let generatedOutput = "";
-    const storedCharacters =
-      "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const totalCharacterSize = storedCharacters.length;
-    for (let index = 0; index < size; index++) {
-      generatedOutput += storedCharacters.charAt(
-        Math.floor(Math.random() * totalCharacterSize)
-      );
+    let generatedArray = [];
+    for (let i = 0; i < 2; i++) {
+      let generatedOutput = "";
+      const storedCharacters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      const totalCharacterSize = storedCharacters.length;
+      for (let index = 0; index < size; index++) {
+        generatedOutput += storedCharacters.charAt(
+          Math.floor(Math.random() * totalCharacterSize)
+        );
+      }
+      generatedArray.push(generatedOutput);
     }
-    return generatedOutput;
+    return generatedArray;
   },
 
   validateIndividualBody: (schema) => {

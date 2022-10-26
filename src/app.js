@@ -2,6 +2,10 @@ const {
   deleteAllUser,
   getAllUser,
 } = require("./controllers/IndividualController");
+const {
+  codeGenerator,
+  generateRandomCharacters,
+} = require("./helpers/route-helper");
 
 const express = require("express"),
   mongoose = require("mongoose"),

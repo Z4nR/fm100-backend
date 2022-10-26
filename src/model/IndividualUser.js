@@ -18,4 +18,5 @@ const individualuser = mongoose.model(
   IndividualSchema,
   "Individual"
 );
+
 module.exports = individualuser;
