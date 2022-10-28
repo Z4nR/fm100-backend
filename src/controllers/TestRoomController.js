@@ -33,7 +33,7 @@ module.exports = {
         },
       ],
     });
-    res.status(202).json(room);
+    res.status(201).json(...room);
   },
 
   deleteAllRoom: async () => {
