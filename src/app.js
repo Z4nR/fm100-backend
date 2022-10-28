@@ -3,6 +3,10 @@ const {
   getAllUser,
 } = require("./controllers/IndividualController");
 const {
+  getAllRoom,
+  deleteAllRoom,
+} = require("./controllers/TestRoomController");
+const {
   codeGenerator,
   generateRandomCharacters,
 } = require("./helpers/route-helper");
@@ -71,8 +75,9 @@ mongo
 const deleteSchedule = cron.schedule(
   "59 59 23 * * *",
   () => {
-    if (getAllUser.length > 0) {
+    if (getAllUser.length || getAllRoom.length > 0) {
       deleteAllUser();
+      deleteAllRoom();
     }
   },
   {

@@ -10,7 +10,7 @@ const TestRoomSchema = new Schema({
   maxTES: Number,
   roomInitial: String,
   testType: String,
-  code: [{ type: Schema.Types.String }],
+  code: [{ _id: String, key: String }],
   clients: [
     {
       type: Schema.Types.ObjectId,

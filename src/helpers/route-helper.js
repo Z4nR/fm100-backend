@@ -12,7 +12,7 @@ module.exports = {
           Math.floor(Math.random() * totalCharacterSize)
         );
       }
-      generatedArray.push(generatedOutput);
+      generatedArray.push({ _id: [i] + 1, key: generatedOutput });
     }
     return generatedArray;
   },

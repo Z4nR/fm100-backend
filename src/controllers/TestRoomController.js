@@ -5,14 +5,35 @@ module.exports = {
   newRoom: async (req, res, next) => {
     const codeGenerator = generateRandomCharacters(7);
     const data = { ...req.body, code: codeGenerator };
-    const newUser = new Room(data);
-    const user = await newUser.save();
-    res.status(201).json(user);
+    const newRoom = new Room(data);
+    const room = await newRoom.save();
+    res.status(201).json(room);
   },
 
   getAllRoom: async (req, res, next) => {
-    const user = await Room.find();
-    res.status(200).json(user);
+    const room = await Room.find();
+    res.status(200).json(room);
+  },
+
+  getVerifyRoom: async (req, res, next) => {
+    const { codeVerify } = req.params;
+    const room = await Room.find({
+      $or: [
+        {
+          code: {
+            _id: "01",
+            key: codeVerify,
+          },
+        },
+        {
+          code: {
+            _id: "11",
+            key: codeVerify,
+          },
+        },
+      ],
+    });
+    res.status(202).json(room);
   },
 
   deleteAllRoom: async () => {
