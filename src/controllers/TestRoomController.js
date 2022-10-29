@@ -15,6 +15,12 @@ module.exports = {
     res.status(200).json(room);
   },
 
+  getRoom: async (req, res, next) => {
+    const { groupId } = req.params;
+    const group = await Room.findById(groupId);
+    res.status(200).json(group);
+  },
+
   getVerifyRoom: async (req, res, next) => {
     const { codeVerify } = req.params;
     const room = await Room.find({

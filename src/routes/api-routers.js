@@ -17,6 +17,7 @@ router.route("/user-data/:userId").get(IndividualController.getUser);
 //Test Room
 router.route("/create-room").post(RoomController.newRoom);
 router.route("/all-room").get(RoomController.getAllRoom);
+router.route("/room/:groupId").get(RoomController.getRoom);
 router.route("/verify-code/:codeVerify").get(RoomController.getVerifyRoom);
 
 //Client
