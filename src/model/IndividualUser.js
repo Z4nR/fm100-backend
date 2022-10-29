@@ -9,8 +9,8 @@ const IndividualSchema = new Schema({
   device: String,
   testType: String,
   totalErrorScore: Number,
-  comparisonResults: [{ number: Number, comparison: String }],
-  discriminantResults: [{ number: Number, discriminant: Number }],
+  comparisonResults: [{ _id: Number, comparison: String }],
+  discriminantResults: [{ _id: Number, discriminant: Number }],
 });
 
 const individualuser = mongoose.model(

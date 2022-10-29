@@ -9,11 +9,11 @@ const ClientSchema = new Schema({
   device: String,
   testType: String,
   totalErrorScore: Number,
+  comparisonResults: [{ _id: Number, comparison: String }],
+  discriminantResults: [{ _id: Number, discriminant: Number }],
   status: String,
-  comparisonResults: [{ number: Number, comparison: String }],
-  discriminantResults: [{ number: Number, discriminant: Number }],
 });
 
-const clientuser = moongose.model("client", ClientSchema, "Client");
+const clientuser = mongoose.model("client", ClientSchema, "Client");
 
 module.exports = clientuser;

@@ -51,13 +51,13 @@ module.exports = {
       totalErrorScore: Joi.number().required(),
       comparisonResults: Joi.array().items(
         Joi.object({
-          number: Joi.number().required(),
+          _id: Joi.number().required(),
           comparison: Joi.string().required(),
         })
       ),
       discriminantResults: Joi.array().items(
         Joi.object({
-          number: Joi.number().required(),
+          _id: Joi.number().required(),
           discriminant: Joi.number().required(),
         })
       ),

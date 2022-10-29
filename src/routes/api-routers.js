@@ -1,4 +1,5 @@
 const router = require("express-promise-router")();
+const ClientController = require("../controllers/ClientController");
 const IndividualController = require("../controllers/IndividualController");
 const RoomController = require("../controllers/TestRoomController");
 const { validateIndividualBody, schema } = require("../helpers/route-helper");
@@ -17,5 +18,9 @@ router.route("/user-data/:userId").get(IndividualController.getUser);
 router.route("/create-room").post(RoomController.newRoom);
 router.route("/all-room").get(RoomController.getAllRoom);
 router.route("/verify-code/:codeVerify").get(RoomController.getVerifyRoom);
+
+//Client
+router.route("/:groupId/client").post(ClientController.newClient);
+router.route("/:groupId/admin").get(ClientController.getAllClients);
 
 module.exports = router;

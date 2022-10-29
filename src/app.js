@@ -1,4 +1,8 @@
 const {
+  getAllClients,
+  deleteAllClient,
+} = require("./controllers/ClientController");
+const {
   deleteAllUser,
   getAllUser,
 } = require("./controllers/IndividualController");
@@ -75,9 +79,10 @@ mongo
 const deleteSchedule = cron.schedule(
   "59 59 23 * * *",
   () => {
-    if (getAllUser.length || getAllRoom.length > 0) {
+    if (getAllUser.length || getAllRoom.length || getAllClients.length > 0) {
       deleteAllUser();
       deleteAllRoom();
+      deleteAllClient();
     }
   },
   {
