@@ -1,5 +1,6 @@
 const { generateRandomCharacters } = require("../helpers/route-helper");
 const Room = require("../model/TestRoom");
+const mailer = require("nodemailer");
 
 module.exports = {
   newRoom: async (req, res, next) => {
@@ -7,6 +8,26 @@ module.exports = {
     const data = { ...req.body, code: codeGenerator };
     const newRoom = new Room(data);
     const room = await newRoom.save();
+
+    const smtpTransport = mailer.createTransport({
+      service: "Gmail",
+      auth: {
+        user: process.env.EMAIL,
+        pass: process.env.PASS,
+      },
+    });
+    const mailOptions = {
+      from: process.env.EMAIL,
+      to: req.body.adminEmail,
+      subject: req.body.roomName + " Code Verification",
+      text: `${req.body.code}`,
+    };
+    smtpTransport.sendMail(mailOptions, function (error) {
+      if (error) {
+        console.log(error);
+      }
+    });
+
     res.status(201).json(room);
   },
 

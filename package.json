@@ -19,6 +19,7 @@
     "joi": "^17.6.3",
     "mongoose": "^6.5.4",
     "node-cron": "^3.0.2",
+    "nodemailer": "^6.8.0",
     "nodemon": "^2.0.19"
   }
 }
