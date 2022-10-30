@@ -9,6 +9,9 @@ module.exports = {
     const newRoom = new Room(data);
     const room = await newRoom.save();
 
+    const adminCode = data.code[0].key;
+    const clientCode = data.code[1].key;
+
     const smtpTransport = mailer.createTransport({
       service: "Gmail",
       auth: {
@@ -19,8 +22,8 @@ module.exports = {
     const mailOptions = {
       from: process.env.EMAIL,
       to: req.body.adminEmail,
-      subject: req.body.roomName + " Code Verification",
-      text: `${req.body.code}`,
+      subject: req.body.roomInitial + " Code Verification",
+      text: `Admin Code : ${adminCode}, Client Code : ${clientCode}`,
     };
     smtpTransport.sendMail(mailOptions, function (error) {
       if (error) {
