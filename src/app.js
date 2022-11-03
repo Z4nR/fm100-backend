@@ -10,10 +10,6 @@ const {
   getAllRoom,
   deleteAllRoom,
 } = require("./controllers/TestRoomController");
-const {
-  codeGenerator,
-  generateRandomCharacters,
-} = require("./helpers/route-helper");
 
 const express = require("express"),
   mongoose = require("mongoose"),
@@ -21,6 +17,7 @@ const express = require("express"),
   app = express(),
   bodyParser = require("body-parser"),
   cors = require("cors"),
+  { Server } = require("socket.io"),
   cron = require("node-cron");
 
 require("dotenv").config();
@@ -95,7 +92,17 @@ deleteSchedule.start();
 
 //Listen port
 const port = process.env.PORT || 5000;
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log("Port is good");
   console.log(port);
 });
+
+//Web Socket
+function onSocketConnect(socket) {
+  socket.on("client-join", () => {
+    socket.emit("refresh-list");
+  });
+}
+
+const socket = new Server(server, { cors: { origin: "*" } });
+socket.on("connect", onSocketConnect);
