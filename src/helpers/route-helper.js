@@ -17,9 +17,11 @@ module.exports = {
     return generatedArray;
   },
 
-  validateParam: (schema, name) => {
+  validateParam: (schema, _id) => {
     return (req, res, next) => {
-      const result = schema.validate({ param: req["params"][name] });
+      console.log(req.params);
+
+      const result = schema.validate({ param: req["params"][_id] });
 
       console.log(result);
 
@@ -34,7 +36,11 @@ module.exports = {
           req.value["params"] = {};
         }
 
-        req.value["params"][name] = result.value.params;
+        console.log(req.value);
+
+        req.value["params"][_id] = result.value.param;
+
+        console.log(result.value.param);
         next();
       }
     };
