@@ -100,6 +100,7 @@ const server = app.listen(port, () => {
 //Web Socket
 function onSocketConnect(socket) {
   socket.on("client-join", () => {
+    console.log("masuk coy");
     socket.emit("refresh-list");
   });
 }

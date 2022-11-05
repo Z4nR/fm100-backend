@@ -4,12 +4,11 @@ const { Schema } = mongoose;
 const TestRoomSchema = new Schema({
   date: String,
   roomName: String,
-  adminName: String,
   adminEmail: String,
-  testPurpose: String,
   maxTES: Number,
   roomInitial: String,
   testType: String,
+  device: String,
   code: [{ _id: String, key: String }],
   clients: [
     {
