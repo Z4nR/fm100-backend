@@ -36,11 +36,8 @@ module.exports = {
           req.value["params"] = {};
         }
 
-        console.log(req.value);
-
         req.value["params"][_id] = result.value.param;
 
-        console.log(result.value.param);
         next();
       }
     };
