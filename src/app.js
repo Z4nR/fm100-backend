@@ -101,9 +101,9 @@ const server = app.listen(port, () => {
 function onSocketConnect(socket) {
   socket.on("client-join", () => {
     console.log("masuk coy");
-    socket.emit("refresh-list");
+    io.emit("refresh-list");
   });
 }
 
-const socket = new Server(server, { cors: { origin: "*" } });
-socket.on("connect", onSocketConnect);
+const io = new Server(server, { cors: { origin: "*" } });
+io.on("connect", onSocketConnect);
