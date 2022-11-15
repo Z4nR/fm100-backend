@@ -23,7 +23,7 @@ module.exports = {
       from: process.env.EMAIL,
       to: req.body.adminEmail,
       subject: req.body.roomInitial + " Code Verification",
-      html: `<p>Admin Code : <b>${adminCode}</b></p> <p>Client Code : <b>${clientCode}</b></p>`,
+      html: `<p>Admin Code : <b>${adminCode}</b> <br/> Client Code : <b>${clientCode}</b></p>`,
     };
     smtpTransport.sendMail(mailOptions, function (error) {
       if (error) {
