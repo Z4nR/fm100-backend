@@ -9,6 +9,8 @@ const ClientSchema = new Schema({
   device: String,
   testType: String,
   totalErrorScore: Number,
+  errorScoreStatus: String,
+  colorBlindType: String,
   comparisonResults: [{ _id: String, comparison: String }],
   discriminantResults: [{ _id: String, discriminant: Number }],
   status: String,

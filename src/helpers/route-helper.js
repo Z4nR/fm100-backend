@@ -75,6 +75,8 @@ module.exports = {
       device: Joi.string().required(),
       testType: Joi.string().required(),
       totalErrorScore: Joi.number().required(),
+      errorScoreStatus: Joi.string().required(),
+      colorBlindType: Joi.string().required(),
       comparisonResults: Joi.array().items(
         Joi.object({
           _id: Joi.string().required(),
@@ -97,6 +99,8 @@ module.exports = {
       device: Joi.string().required(),
       testType: Joi.string().required(),
       totalErrorScore: Joi.number().required(),
+      errorScoreStatus: Joi.string().required(),
+      colorBlindType: Joi.string().required(),
       comparisonResults: Joi.array().items(
         Joi.object({
           _id: Joi.string().required(),
