@@ -17,7 +17,6 @@ const express = require("express"),
   app = express(),
   bodyParser = require("body-parser"),
   cors = require("cors"),
-  { Server } = require("socket.io"),
   cron = require("node-cron");
 
 require("dotenv").config();
@@ -96,14 +95,3 @@ const server = app.listen(port, () => {
   console.log("Port is good");
   console.log(port);
 });
-
-//Web Socket
-function onSocketConnect(socket) {
-  socket.on("client-join", () => {
-    console.log("masuk coy");
-    io.emit("refresh-list");
-  });
-}
-
-const io = new Server(server, { cors: { origin: "*" } });
-io.on("connect", onSocketConnect);
