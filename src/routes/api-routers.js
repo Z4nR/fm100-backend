@@ -34,6 +34,12 @@ router
     validateParam(schema.codeSchema, "codeVerify"),
     RoomController.getVerifyRoom
   );
+router
+  .route("/delete-room/:groupId")
+  .delete(
+    validateParam(schema.idGroupSchema, "groupId"),
+    RoomController.deleteRoom
+  );
 
 //Client
 router
