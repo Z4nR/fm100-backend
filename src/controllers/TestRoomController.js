@@ -68,8 +68,8 @@ module.exports = {
 
   deleteRoom: async (req, res, next) => {
     const { groupId } = req.params;
-    const group = await Room.deleteOne(groupId);
-    res.status(200).json(group);
+    await Room.deleteOne(groupId);
+    res.status(200).json({ success: true });
   },
 
   deleteAllRoom: async () => {
