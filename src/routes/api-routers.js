@@ -1,4 +1,5 @@
 const router = require("express-promise-router")();
+const ArticleController = require("../controllers/ArticleController");
 const ClientController = require("../controllers/ClientController");
 const IndividualController = require("../controllers/IndividualController");
 const RoomController = require("../controllers/TestRoomController");
@@ -57,5 +58,8 @@ router
     validateParam(schema.idGroupSchema, "groupId"),
     ClientController.getAllClients
   );
+
+//Article
+router.route("/article").get(ArticleController.getAllArticle);
 
 module.exports = router;
