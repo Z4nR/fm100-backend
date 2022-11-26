@@ -3,6 +3,7 @@ const { Schema } = mongoose;
 
 const ArticleSchema = new Schema({
   title: String,
+  author: String,
   category: String,
   description: String,
   url: String,
