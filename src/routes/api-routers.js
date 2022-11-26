@@ -60,7 +60,7 @@ router
   );
 
 //Article
-router.route("/article/new-article").get(ArticleController.newArticle);
+router.route("/article/new-article").post(ArticleController.newArticle);
 router.route("/article/show-article").get(ArticleController.getAllArticle);
 
 module.exports = router;
